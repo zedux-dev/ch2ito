@@ -1,4 +1,5 @@
-![# Ch2ito](https://killmezed.com/chitodemo/assets/img/git.png)
+![Chito](https://killmezed.com/chitodemo/assets/img/git-d.png#gh-dark-mode-only)
+![Chito](https://killmezed.com/chitodemo/assets/img/git-l.png#gh-light-mode-only)
 
 ## The problem
 **Heavy metals** have a **carcinogenic** nature and even though around 74% of the world population has access to safely managed drinking water none of us is safe from **water pollution**. Because heavy metals ions can enter and climb the food chain reaching our tables.
