@@ -1,5 +1,5 @@
-![Termux Logo](https://killmezed.com/chitodemo/assets/img/git-d.png#gh-dark-mode-only)
-![Termux Logo](https://killmezed.com/chitodemo/assets/img/git-l.png#gh-light-mode-only)
+![Termux Logo](https://user-images.githubusercontent.com/72879799/153904003-d7dee710-6552-4d23-a803-7a9a0ba67d92.png#gh-dark-mode-only)
+![Termux Logo](https://user-images.githubusercontent.com/72879799/153904095-9d78a019-8495-4035-8174-e3da8e4dd66b.png#gh-light-mode-only)
 
 ## The problem
 **Heavy metals** have a **carcinogenic** nature and even though around 74% of the world population has access to safely managed drinking water none of us is safe from **water pollution**. Because heavy metals ions can enter and climb the food chain reaching our tables.
