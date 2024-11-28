@@ -1,6 +1,5 @@
 <?php
-    define('SECRET', '');
-    
+    define('SECRET', 'banana');
 
     function forbidden() {
         http_response_code(401);
@@ -8,6 +7,8 @@
     }
 
     function generate_jwt($username, $id) {
-        $tk = md5($username . "--." . $id . "--." . SECRET);
-        return $tk;
+        $expire = strtotime('+2 days');
+        $tk = md5($username . "--." . $id . "--." . SECRET . '--.' . $expire);
+
+        return [$tk, $expire];
     }

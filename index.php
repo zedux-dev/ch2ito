@@ -28,8 +28,9 @@
                         $tk = generate_jwt($username, $row["id"]);
 
                         echo json_encode([
-                            "state" => "success",
-                            "token" => $tk
+                            "status" => "success",
+                            "token" => $tk[0],
+                            "expire" => $tk[1]
                         ]);
                         exit;
                     }
