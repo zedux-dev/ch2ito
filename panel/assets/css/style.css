@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #ffffff;
+    --title-color: #2a3764;
+    --text-color: #757f9f;
+    --text-darker-color: #494b51;
+    --red: rgb(224, 103, 113);
+    --background-inner-color: #f1f3f6;
+    --primary-color: #56b3ff;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: var(--background-inner-color);
+}
+
+.color-red {
+    color: var(--red) !important;
+}
+
+.field-wrapper {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 25px;
+    /* margin-bottom: 40px; */
+}
+
+.field-wrapper > svg {
+    position: absolute;
+    top: calc(50% - 9px);
+    right: 10px;
+    height: 16px;
+    width: 16px;
+    fill: #c4d2e7c0;
+}
+
+.field-wrapper > input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c4d2e77b;
+    border-radius: 6px;
+    outline-color: var(--primary-color);
+    font-family: "Inter", sans-serif;
+    padding: 0 16px;
+    padding-right: 30px;
+}
+
+.field-wrapper > label {
+    position: absolute;
+    font-size: 13px;
+    color: var(--text-darker-color);
+    top: -22px;
+    left: 2px;
+}
+
+.btn-submit {
+    color: white;
+    border: 0;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 300px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 12px 23px;
+    color: white;
+    background: linear-gradient(180deg, #56b3ff 0%, #36a3fb 100%);
+    transition: .2s ease filter;
+}
+
+.btn-submit:hover {
+    filter: brightness(1.1);
+}
