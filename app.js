@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
+var cors = require('cors');
 var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 
@@ -13,6 +14,7 @@ var indexRouter = require('./routes/index');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var devicesRouter = require('./routes/api/devices.js');
+var recordsRouter = require('./routes/api/records.js');
 
 var app = express();
 
@@ -23,6 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -39,13 +42,14 @@ app.use(passport.authenticate('session'));
 app.use('/', indexRouter);
 app.use('/', authRouter.router);
 app.use('/', devicesRouter);
+app.use('/', recordsRouter);
 
 app.use((req, res, next) => {
     next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use((err, req, res) => {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};

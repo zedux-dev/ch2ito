@@ -6,7 +6,7 @@ var { v4: uuidv4 } = require('uuid');
 
 var router = express.Router();
 
-router.get('/list-devices', auth.middleware, (req, res, next) => {
+router.get('/get-devices', auth.middleware, (req, res, next) => {
     db.all('SELECT id, name, info FROM devices WHERE owner = ?', [ req.user.id ], (err, rows) => {
         if(err) {
             return res.status(500).send(JSON.stringify({
@@ -176,6 +176,49 @@ router.post('/edit-device', auth.middleware, (req, res, next) => {
                 status: 'ok'
             }));
         });
+    });
+});
+
+router.delete('/delete-device', auth.middleware, (req, res, next) => {
+    if(req.body.id !== undefined && req.body.id != "") {
+        return next();
+    }
+    
+    return res.status(400).send(JSON.stringify({
+        status: 'error',
+        message: 'Invalid parameters.'
+    }));
+}, (req, res, next) => {
+    db.get('SELECT * FROM devices WHERE owner = ? AND id = ?', [ req.user.id, req.body.id ], (err, row) => {
+        if(err) {
+            return res.status(500).send(JSON.stringify({
+                status: 'error',
+                message: 'Unknown internal error.'
+            }));
+        }
+
+        if(row) {
+            return next();
+        }
+
+        return res.send(JSON.stringify({
+            status: 'error',
+            message: 'Device not found.'
+        }));
+    });
+
+}, (req, res) => {
+    db.run('DELETE FROM devices WHERE owner = ? AND id = ?', [ req.user.id, req.body.id ], (err) => {
+        if(err) {
+            return res.status(500).send(JSON.stringify({
+                status: 'error',
+                message: 'Unknown internal error.'
+            }));
+        }
+
+        return res.send(JSON.stringify({
+            status: 'ok'
+        }));
     });
 });
 
